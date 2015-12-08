@@ -30,18 +30,18 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.calculate1Button = new System.Windows.Forms.Button();
-            this.problem3Label = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.stringBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.stringBox2 = new System.Windows.Forms.TextBox();
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.resultValueLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dcLabel = new System.Windows.Forms.Label();
+            this.resultValueLabel = new System.Windows.Forms.Label();
+            this.resultLabel = new System.Windows.Forms.Label();
+            this.stringBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.stringBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.problem3Label = new System.Windows.Forms.Label();
+            this.calculate1Button = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.dcLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -77,27 +77,71 @@
             this.tabPage1.Text = "Main Window";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // comboBox1
             // 
-            this.tabPage2.Controls.Add(this.checkedListBox1);
-            this.tabPage2.Controls.Add(this.dcLabel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(420, 148);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Study List";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Greatest Subsequence",
+            "Edit Distance",
+            "Selection",
+            "Quick Sort",
+            "Find Majority Element"});
+            this.comboBox1.Location = new System.Drawing.Point(296, 87);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 9;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // calculate1Button
+            // resultValueLabel
             // 
-            this.calculate1Button.Location = new System.Drawing.Point(342, 119);
-            this.calculate1Button.Name = "calculate1Button";
-            this.calculate1Button.Size = new System.Drawing.Size(75, 23);
-            this.calculate1Button.TabIndex = 0;
-            this.calculate1Button.Text = "Calculate";
-            this.calculate1Button.UseVisualStyleBackColor = true;
-            this.calculate1Button.Click += new System.EventHandler(this.calculate1Button_Click);
+            this.resultValueLabel.AutoSize = true;
+            this.resultValueLabel.Location = new System.Drawing.Point(131, 117);
+            this.resultValueLabel.Name = "resultValueLabel";
+            this.resultValueLabel.Size = new System.Drawing.Size(0, 13);
+            this.resultValueLabel.TabIndex = 7;
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(6, 117);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(119, 13);
+            this.resultLabel.TabIndex = 6;
+            this.resultLabel.Text = "Greatest Subsequence:";
+            // 
+            // stringBox2
+            // 
+            this.stringBox2.Location = new System.Drawing.Point(3, 88);
+            this.stringBox2.Name = "stringBox2";
+            this.stringBox2.Size = new System.Drawing.Size(147, 20);
+            this.stringBox2.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "String 2";
+            // 
+            // stringBox1
+            // 
+            this.stringBox1.Location = new System.Drawing.Point(3, 49);
+            this.stringBox1.Name = "stringBox1";
+            this.stringBox1.Size = new System.Drawing.Size(147, 20);
+            this.stringBox1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "String 1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // problem3Label
             // 
@@ -110,81 +154,27 @@
             this.problem3Label.TabIndex = 1;
             this.problem3Label.Text = "Find the greatest subsequence between the two strings";
             // 
-            // label1
+            // calculate1Button
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "String 1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.calculate1Button.Location = new System.Drawing.Point(342, 119);
+            this.calculate1Button.Name = "calculate1Button";
+            this.calculate1Button.Size = new System.Drawing.Size(75, 23);
+            this.calculate1Button.TabIndex = 0;
+            this.calculate1Button.Text = "Calculate";
+            this.calculate1Button.UseVisualStyleBackColor = true;
+            this.calculate1Button.Click += new System.EventHandler(this.calculate1Button_Click);
             // 
-            // stringBox1
+            // tabPage2
             // 
-            this.stringBox1.Location = new System.Drawing.Point(3, 49);
-            this.stringBox1.Name = "stringBox1";
-            this.stringBox1.Size = new System.Drawing.Size(147, 20);
-            this.stringBox1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "String 2";
-            // 
-            // stringBox2
-            // 
-            this.stringBox2.Location = new System.Drawing.Point(3, 88);
-            this.stringBox2.Name = "stringBox2";
-            this.stringBox2.Size = new System.Drawing.Size(147, 20);
-            this.stringBox2.TabIndex = 5;
-            // 
-            // resultLabel
-            // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(6, 117);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(119, 13);
-            this.resultLabel.TabIndex = 6;
-            this.resultLabel.Text = "Greatest Subsequence:";
-            // 
-            // resultValueLabel
-            // 
-            this.resultValueLabel.AutoSize = true;
-            this.resultValueLabel.Location = new System.Drawing.Point(131, 117);
-            this.resultValueLabel.Name = "resultValueLabel";
-            this.resultValueLabel.Size = new System.Drawing.Size(0, 13);
-            this.resultValueLabel.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Greatest Subsequence",
-            "Edit Distance",
-            "Selection",
-            "Quick Sort"});
-            this.comboBox1.Location = new System.Drawing.Point(296, 87);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // dcLabel
-            // 
-            this.dcLabel.AutoSize = true;
-            this.dcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dcLabel.Location = new System.Drawing.Point(3, 3);
-            this.dcLabel.Name = "dcLabel";
-            this.dcLabel.Size = new System.Drawing.Size(111, 13);
-            this.dcLabel.TabIndex = 0;
-            this.dcLabel.Text = "We need to study:";
-            this.dcLabel.Click += new System.EventHandler(this.dcLabel_Click);
+            this.tabPage2.Controls.Add(this.checkedListBox1);
+            this.tabPage2.Controls.Add(this.dcLabel);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(420, 148);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Study List";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // checkedListBox1
             // 
@@ -197,6 +187,17 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(160, 124);
             this.checkedListBox1.TabIndex = 1;
+            // 
+            // dcLabel
+            // 
+            this.dcLabel.AutoSize = true;
+            this.dcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dcLabel.Location = new System.Drawing.Point(3, 3);
+            this.dcLabel.Name = "dcLabel";
+            this.dcLabel.Size = new System.Drawing.Size(111, 13);
+            this.dcLabel.TabIndex = 0;
+            this.dcLabel.Text = "We need to study:";
+            this.dcLabel.Click += new System.EventHandler(this.dcLabel_Click);
             // 
             // Form1
             // 

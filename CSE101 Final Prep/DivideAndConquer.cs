@@ -8,6 +8,68 @@ namespace CSE101_Final_Prep
 {
     class DivideAndConquer
     {
+        public const int NIL = -255;
+        public static int FindMajorityElemLin( List<int> list)
+        {
+            List<int> subList = new List<int>();
+            if(list.Count > 3)
+            {
+                for(int i = 0; i < list.Count-1; i+=2)
+                    if (list[i] == list[i + 1])
+                        subList.Add(list[i]);
+                if (list.Count % 2 == 1)
+                    subList.Add(list[list.Count - 1]);
+                if( subList.Count*2 > list.Count/2 )
+                    return FindMajorityElemLin(subList);
+            }
+            if (list.Count == 1 | ( list.Count == 2 && list[0] == list[1]))
+                return list[0];
+            if (list.Count == 3 && (list[0] == list[1] | list[0] == list[2]))
+                return list[0];
+            else if(list.Count == 3 &&  list[1] == list[2])
+                return list[1];
+            
+            return NIL;
+        }
+        public static int FindMajorityElement( List<int> list )
+        {
+            if (list.Count > 3)
+            {
+                List<int> leftList = new List<int>();
+                List<int> rightList = new List<int>();
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (i < (list.Count / 2))
+                        leftList.Add(list[i]);
+                    else
+                        rightList.Add(list[i]);
+                }
+                int majLeft = FindMajorityElement(leftList);
+                int majRight = FindMajorityElement(rightList);
+                if (majLeft == majRight)
+                    return majRight;
+                int rC = 0;
+                int lC = 0;
+                foreach(int elem in list)
+                {
+                    if (elem == majLeft)
+                        lC++;
+                    if (elem == majRight)
+                        rC++;
+                }
+                if (rC > list.Count / 2)
+                    return majRight;
+                if (lC > list.Count / 2)
+                    return majLeft;
+
+            }
+            else
+                for (int i = 0; i < list.Count - 1; i++)
+                    for (int j = i; j < list.Count; j++)
+                        if (list[i] == list[j])
+                            return list[i];
+            return NIL;
+        }
         public static void QuickSort(List<int> list, bool inPlace) {
             Random rng = new Random();
             if(inPlace)

@@ -31,6 +31,7 @@ namespace CSE101_Final_Prep
         const int EDITDISTANCE = 1;
         const int SELECTION = 2;
         const int QUICKSORT = 3;
+        const int FINDMAJORITYELEM = 4;
         private int[] getIntArrayFromString(String str)
         {
             String[] subStr = str.Split(',');
@@ -82,9 +83,10 @@ namespace CSE101_Final_Prep
                         i++;
                     }
                     break;
-
-
-
+                case FINDMAJORITYELEM:
+                    intList = getIntArrayFromString(stringBox1.Text).ToList();
+                    newLabel = DivideAndConquer.FindMajorityElement(intList).ToString();
+                    break;
             }
             resultValueLabel.Text = newLabel;
             Console.WriteLine(stringBox1.Text + " " + stringBox2.Text);
@@ -118,6 +120,12 @@ namespace CSE101_Final_Prep
                 case QUICKSORT:
                     problem3Label.Text = "Run Quick Sort on an integer list";
                     resultLabel.Text = "Sorted List: ";
+                    label1.Text = "Unsorted Integer List";
+                    hideInputField2();
+                    break;
+                case FINDMAJORITYELEM:
+                    problem3Label.Text = "Find the Majority Element in an integer list";
+                    resultLabel.Text = "Majority Element (or -255):";
                     label1.Text = "Unsorted Integer List";
                     hideInputField2();
                     break;
